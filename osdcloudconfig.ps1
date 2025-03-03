@@ -27,7 +27,7 @@ $Global:MyOSDCloud = [ordered]@{
     CheckSHA1 = [bool]$true
 }
 
-Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation -OSLanguage $OSLanguagev -ZTI
+Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation -OSLanguage $OSLanguage -ZTI
 
 
 Write-Host -ForegroundColor Green "Downloading and creating script for OOBE phase"
