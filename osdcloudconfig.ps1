@@ -31,7 +31,7 @@ Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation
 
 
 Write-Host -ForegroundColor Green "Downloading and creating script for OOBE phase"
-
+Invoke-RestMethod https://raw.githubusercontent.com/AlleviaChris/alleviapublic/refs/heads/main/oobenoAP.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\oobe.ps1' -Encoding ascii -Force 
 Invoke-RestMethod https://raw.githubusercontent.com/AkosBakos/OSDCloud/main/Install-EmbeddedProductKey.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\productkey.ps1' -Encoding ascii -Force
 Copy-Item -Path "X:\OSDCloud\Config\Scripts\apps.ps1" -Destination "C:\Windows\Setup\Scripts\apps.ps1"
 
@@ -39,6 +39,7 @@ $OOBECMD = @'
 @echo off
 # Execute OOBE Tasks
 start /wait powershell.exe -NoL -ExecutionPolicy Bypass -F C:\Windows\Setup\Scripts\productkey.ps1
+start /wait powershell.exe -NoL -ExecutionPolicy Bypass -F C:\Windows\Setup\Scripts\oobe.ps1
 start /wait powershell.exe -NoL -ExecutionPolicy Bypass -F C:\Windows\Setup\Scripts\apps.ps1
 exit 
 '@
