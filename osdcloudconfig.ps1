@@ -1,4 +1,4 @@
-$OSName = 'Windows 10 22H2 x64'
+$OSName = 'Windows 11 24H2 x64'
 $OSEdition = 'Pro'
 $OSActivation = 'Retail'
 $OSLanguage = 'en-us'
@@ -20,7 +20,7 @@ $Global:MyOSDCloud = [ordered]@{
 
 Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation -OSLanguage $OSLanguage -ZTI
 
-Write-SectionHeader -Message "OSDCloud Process Complete, Running Custom Actions From Script Before Reboot"
+Write-Host -Message "OSDCloud Process Complete, Running Custom Actions From Script Before Reboot"
 
 #Copy CMTrace Local:
 if (Test-path -path "x:\windows\system32\cmtrace.exe"){
